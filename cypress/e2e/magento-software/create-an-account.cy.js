@@ -18,6 +18,7 @@ describe('register account', () => {
   //   cy.get('#lastname').type('Rachman')
   //   //sign in information
   //   cy.get('#email_address').type('dickygmail.com')
+  //   cy.get('#email_address-error').should('containt.text','Please enter a valid email address (Ex: johndoe@domain.com).')
   //   cy.get('#password').type('@12345qwerty')
   //   cy.get('#password-confirmation').type('@12345qwerty')
   //   cy.get('#form-validate').click()
@@ -31,6 +32,7 @@ describe('register account', () => {
   //   //sign in information
   //   cy.get('#email_address').type('dicky@gmail.com')
   //   cy.get('#password').type('@1234')
+  //   cy.get('#password-error').should('containt.text','Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.')
   //   cy.get('#password-confirmation').type('@123')
   //   cy.get('#form-validate').click()
   // })
