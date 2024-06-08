@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('login', () => {
   beforeEach(() => {
     cy.visit('') //fill to override baseurl in cypress.config.js
   })
