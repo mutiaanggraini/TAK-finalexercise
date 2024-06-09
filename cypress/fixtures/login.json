@@ -1,0 +1,10 @@
+{
+    "validEmail": "mutia@gmail.com",
+    "validPassword": "KucingLucu123",
+    "invalidEmail": "bebek@mail.com",
+    "invalidPassword": "invalidPassword",
+    "errorMsg": "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.",
+    "requiredEmailMsg": "This is a required field.",
+    "requiredPassMsg": "This is a required field.",
+    "invalidEmailMsg" : "Please enter a valid email address (Ex: johndoe@domain.com)."
+}
