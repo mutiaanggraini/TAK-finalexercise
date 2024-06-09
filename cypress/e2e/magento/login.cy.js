@@ -1,4 +1,4 @@
-import loginPage from "../../support/pageObject/magento/loginPage"
+import loginPage from "../../support/pageObject/magento/loginPage";
 
 describe('Verify Login Functionality on Magento', () => {
   beforeEach(() => {
@@ -14,7 +14,25 @@ describe('Verify Login Functionality on Magento', () => {
     });
   });
 
-  it('Login with invalid credentials', () => {
+  it('Login with invalid password', () => {
+    cy.fixture('login').then((data) => {
+      loginPage.inputEmail(data.validEmail);
+      loginPage.inputPassword(data.invalidPassword);
+      loginPage.clickLoginButton();
+      loginPage.verifyErrorMsg(data.errorMsg);
+    });
+  });
+
+  it('Login with invalid email', () => {
+    cy.fixture('login').then((data) => {
+      loginPage.inputEmail(data.invalidEmail);
+      loginPage.inputPassword(data.validPassword);
+      loginPage.clickLoginButton();
+      loginPage.verifyErrorMsg(data.errorMsg);
+    });
+  });
+
+  it('Login with invalid email and invalid password', () => {
     cy.fixture('login').then((data) => {
       loginPage.inputEmail(data.invalidEmail);
       loginPage.inputPassword(data.invalidPassword);
@@ -23,9 +41,20 @@ describe('Verify Login Functionality on Magento', () => {
     });
   });
 
-  it('Login with empty credentials', () => {
-    loginPage.clickLoginButton();
-    loginPage.verifyErrorMsg('This is a required field.');
+  it('Login with empty password', () => {
+    cy.fixture('login').then((data) => {
+      loginPage.inputEmail(data.validEmail);
+      loginPage.clickLoginButton();
+      loginPage.verifyPassRequiredMsg(data.requiredPassMsg);
+    });
+  });
+
+  it('Login with empty email', () => {
+    cy.fixture('login').then((data) => {
+      loginPage.inputPassword(data.validPassword);
+      loginPage.clickLoginButton();
+      loginPage.verifyEmailRequiredMsg(data.requiredEmailMsg);
+    });
   });
 
   it('Login with invalid email format', () => {
@@ -33,7 +62,7 @@ describe('Verify Login Functionality on Magento', () => {
       loginPage.inputEmail('invalid_email_format');
       loginPage.inputPassword(data.validPassword);
       loginPage.clickLoginButton();
-      loginPage.verifyErrorMsg('Please enter a valid email address.');
+      loginPage.verifyEmailMsg(data.invalidEmailMsg);
     });
   });
 });

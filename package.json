@@ -1,24 +1,19 @@
 {
-  "name": "tak5-cypress",
+  "name": "tak-finalexercise",
   "version": "1.0.0",
-  "description": "Test Aplikasi Kamu Batch 5 - Cypress Automation",
+  "description": "Repository ini dibuat guna memenuhi tugas Bootcamp QA Engineer - Test Aplikasi Kamu",
   "main": "index.js",
   "scripts": {
-    "test-product": "npx cypress run --spec 'cypress/e2e/tricentis/product.cy.js' --browser chrome",
-    "test-register": "npx cypress run --spec 'cypress/e2e/tricentis/register.cy.js' --browser firefox",
-    "test-tricentis": "npx cypress run --spec 'cypress/e2e/tricentis/*' --browser chrome"
+    "test-product": "npx cypress run --spec 'cypress/e2e/magento/login.cy.js' --browser chrome"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elvanisa/TAK5-Cypress.git"
+    "url": "git+https://github.com/mutiaanggraini/TAK-finalexercise.git"
   },
-  "author": "",
+  "author": "Mutia",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/elvanisa/TAK5-Cypress/issues"
-  },
-  "homepage": "https://github.com/elvanisa/TAK5-Cypress#readme",
   "devDependencies": {
     "cypress": "^13.10.0"
   }
 }
+
