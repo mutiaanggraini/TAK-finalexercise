@@ -1,29 +1,24 @@
-class registerPage{
-    gender = '#gender-male'
-    firstName = '#FirstName'
-    lastname = '[name="LastName"]'
-    email = '#Email'
-    pass = '#Password'
-    confirm = '#ConfirmPassword'
-    errorMsg = ':nth-child(1) > .field-validation-error > span'
-    matchMsg = '.field-validation-error > span'
-    summaryMsg = '.validation-summary-errors > ul > li'
+class LoginPage {
+    email = '#email';
+    password = '#pass';
+    loginButton = '#send2';
+    errorMsg = '.message-error > div';
 
-    chooseGender(){
-        cy.get(this.gender).check()
+    inputEmail(value) {
+        cy.get(this.email).should('be.visible').type(value);
     }
 
-    inputFirstName(value){
-        cy.get(this.firstName).should('be.visible').type(value)
+    inputPassword(value) {
+        cy.get(this.password).should('be.visible').type(value);
     }
-    inputLastName(value){
-        cy.get(this.lastname).should('be.visible').type(value)
+
+    clickLoginButton() {
+        cy.get(this.loginButton).click();
     }
-    inputEmail(value){
-        cy.get(this.email).should('be.visible').type(value)
-    }
-    verifyText(msg,text){
-        cy.get(msg).should('contain.text',text)
+
+    verifyErrorMsg(text) {
+        cy.get(this.errorMsg).should('contain.text', text);
     }
 }
-export default new registerPage()
+
+export default new LoginPage();

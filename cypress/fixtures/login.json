@@ -1,0 +1,7 @@
+{
+    "validRmail": "mutia@gmail.com",
+    "validPassword": "KucingLucu123",
+    "invalidEmail" : "bebek@mail.com",
+    "invalidPassword" : "invalidPassword",
+    "errorMsg": "Invalid login or password."
+}
