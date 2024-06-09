@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/mutiaanggraini/TAK-finalexercise.git"
   },
-  "author": "Mutia",
+  "author": "Kelompok 1 Automation Test Aplikasi Kamu",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.10.0"
