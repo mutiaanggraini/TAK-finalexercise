@@ -1,4 +1,4 @@
-import registerPage from "../../support/pageObject/tricentis/registerPage"
+import registerPage from "../../support/pageObject/magento/loginPage"
 
 describe('Verify Register Functionality', () => {
   beforeEach(() => {

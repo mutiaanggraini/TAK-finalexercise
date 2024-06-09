@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://demowebshop.tricentis.com',
+    baseUrl: 'https://magento.softwaretestingboard.com/',
     env: {
       product1: 'computer',
       product2: 'bag',
