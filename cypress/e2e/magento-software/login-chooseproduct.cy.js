@@ -6,8 +6,10 @@ describe('template spec', () => {
     cy.get('.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2 > span').click()
   })
 
-  it('choose product valid', () => {
+  beforeEach(() => {
     cy.visit('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html')
+  })
+  it('choose product valid', () => {
     //pilih product
     cy.get(':nth-child(1) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
     //pemilihan size, warna, jumlah
@@ -18,20 +20,18 @@ describe('template spec', () => {
     cy.get('#product-addtocart-button > span').click()
   })
 
-  // it('choose product invalid, tanpa pilih ukuran', () => {
-  //   cy.visit('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html')
-  //   //pilih product
-  //   cy.get(':nth-child(1) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
-  //   //pemilihan size, warna, jumlah 
-  //   // cy.get('#option-label-size-143-item-168').click()
-  //   cy.get('#option-label-color-93-item-50').click()
-  //   cy.get('#qty').clear()
-  //   cy.get('#qty').type('2')
-  //   cy.get('#product-addtocart-button > span').click()
-  // })
+  it('choose product invalid, tanpa pilih ukuran', () => {
+    //pilih product
+    cy.get(':nth-child(1) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
+    //pemilihan size, warna, jumlah 
+    // cy.get('#option-label-size-143-item-168').click()
+    cy.get('#option-label-color-93-item-50').click()
+    cy.get('#qty').clear()
+    cy.get('#qty').type('2')
+    cy.get('#product-addtocart-button > span').click()
+  })
 
   // it('choose product invalid, tanpa pilih warna', () => {
-  //   cy.visit('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html')
   //   //pilih product
   //   cy.get(':nth-child(1) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
   //   //pemilihan size, warna, jumlah 
@@ -42,19 +42,20 @@ describe('template spec', () => {
   //   cy.get('#product-addtocart-button > span').click()
   // })
 
-  it('search product valid', () => {
-    cy.visit('https://magento.softwaretestingboard.com/')
-    //cari product
-    cy.get('#search').type('Jacket').click()
-    // pilih produck
-    cy.get(':nth-child(5) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').
-    //pemilihan size, warna, jumlah
-    cy.get('#option-label-size-143-item-168').click()
-    cy.get('#option-label-color-93-item-53').click()
-    cy.get('#qty').clear()
-    cy.get('#qty').type(3)
-    cy.get('#product-addtocart-button > span').click()
-  })
+  // it('search product valid', () => {
+  //   cy.visit('https://magento.softwaretestingboard.com/')
+  //   const product = 'jacket'
+  //   //cari product
+  //   cy.get('#search').type(product).click()
+  //   // pilih produck
+  //   cy.get(':nth-child(5) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').
+  //   //pemilihan size, warna, jumlah
+  //   cy.get('#option-label-size-143-item-168').click()
+  //   cy.get('#option-label-color-93-item-53').click()
+  //   cy.get('#qty').clear()
+  //   cy.get('#qty').type(3)
+  //   cy.get('#product-addtocart-button > span').click()
+  // })
 
 
 })
