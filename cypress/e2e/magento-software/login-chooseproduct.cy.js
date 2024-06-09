@@ -41,4 +41,20 @@ describe('template spec', () => {
   //   cy.get('#qty').type('2')
   //   cy.get('#product-addtocart-button > span').click()
   // })
+
+  it('search product valid', () => {
+    cy.visit('https://magento.softwaretestingboard.com/')
+    //cari product
+    cy.get('#search').type('Jacket').click()
+    // pilih produck
+    cy.get(':nth-child(5) > .product-item-info > .photo > .product-image-container > .product-image-wrapper > .product-image-photo').
+    //pemilihan size, warna, jumlah
+    cy.get('#option-label-size-143-item-168').click()
+    cy.get('#option-label-color-93-item-53').click()
+    cy.get('#qty').clear()
+    cy.get('#qty').type(3)
+    cy.get('#product-addtocart-button > span').click()
+  })
+
+
 })
