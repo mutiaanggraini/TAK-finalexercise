@@ -6,12 +6,13 @@ describe('checkout', () => {
     })
 
     it('success checkout', () => {
-      cy.login()
+      cy.loginmut()
       //cy.chooseproduct()
 
       cy.fixture('checkout').then((data) =>{
-        cy.get('.showcart').click()
-        cy.get('#top-cart-btn-checkout').click()
+        checkoutPage.clickcart()
+        cy.wait(5000)
+        checkoutPage.clickchkout()
         cy.wait(5000)
         cy.get(checkoutPage.address).type(data.address)
         cy.get(checkoutPage.city).type(data.city)
@@ -19,8 +20,9 @@ describe('checkout', () => {
         cy.get(checkoutPage.province).select(47) //handling multiple dropdown
         cy.get(checkoutPage.zipcode).type(data.zipcode)
         cy.get(checkoutPage.phone).type(data.phone)
-        cy.get(checkoutPage.shipmtd).click()
-        cy.get(checkoutPage.nextbtn).click()
+        checkoutPage.clickshipmtd()
+        checkoutPage.clicknextbtn()
+
         cy.wait(10000)
 
         cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
@@ -38,7 +40,6 @@ describe('checkout', () => {
       })
       
     })
-  
-    
+
   })
 })  
