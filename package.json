@@ -4,12 +4,17 @@
   "description": "Repository ini dibuat guna memenuhi tugas Bootcamp QA Engineer - Test Aplikasi Kamu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-product": "npx cypress run --spec 'cypress/e2e/magento/login.cy.js' --browser chrome"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mutiaanggraini/TAK-finalexercise.git"
+  },
+  "author": "Kelompok 1 Automation Test Aplikasi Kamu",
   "license": "ISC",
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "cypress": "^13.11.0"
   }
 }
+
