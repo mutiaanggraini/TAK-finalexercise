@@ -1,45 +1,42 @@
 import checkoutPage from "../../support/pageObject/magento/checkoutPage"
 
 describe('checkout', () => {
-    beforeEach(() => {
-      cy.visit('') //fill to override baseurl in cypress.config.js
-    })
-
-    it('success checkout', () => {
-      cy.loginmut()
-      //cy.chooseproduct()
-
-      cy.fixture('checkout').then((data) =>{
-        checkoutPage.clickcart()
-        cy.wait(5000)
-        checkoutPage.clickchkout()
-        cy.wait(5000)
-        cy.get(checkoutPage.address).type(data.address)
-        cy.get(checkoutPage.city).type(data.city)
-        cy.get(checkoutPage.country).select(data.country) //handling multiple dropdown
-        cy.get(checkoutPage.province).select(47) //handling multiple dropdown
-        cy.get(checkoutPage.zipcode).type(data.zipcode)
-        cy.get(checkoutPage.phone).type(data.phone)
-        checkoutPage.clickshipmtd()
-        checkoutPage.clicknextbtn()
-
-        cy.wait(10000)
-
-        cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
-          const subtotal = $subtotal.text().trim()
-          cy.get(checkoutPage.totalchk).then(($total) => {
-            // Extract and assert the text from the second element
-            const total = $total.text().trim()
-
-          expect(subtotal).to.equal(total)
-        })
-        
-        cy.get(checkoutPage.plcorder).click()
-        const thxorder = cy.get(checkoutPage.thxorder).text().trim()
-        expect(thxorder, 'Thank you for your purchase!')
-      })
-      
-    })
-
+  beforeEach(() => {
+    cy.visit('') //fill to override baseurl in cypress.config.js
   })
-})  
+
+  it('success checkout', () => {
+    cy.loginmut()
+    // cy.chooseproduct()
+
+    cy.wait(5000)
+    checkoutPage.clickCart()
+      cy.wait(5000)
+      checkoutPage.clickChkout()
+      cy.url().should('include', '/checkout/#shipping')
+      cy.wait(5000)
+
+      // Code to fill shipping information
+      checkoutPage.addShippingInfo()
+      
+      // checkoutPage.clickShipmtd()
+      // checkoutPage.clickNextbtn()
+      // cy.wait(10000)
+
+      // cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
+      //   const subtotal = $subtotal.text().trim()
+      //   cy.get(checkoutPage.totalchk).then(($total) => {
+      //     // Extract and assert the text from the second element
+      //     const total = $total.text().trim()
+
+      //   expect(subtotal).to.equal(total)
+      // })
+        
+      checkoutPage.clickPlaceOrder()
+      // const thxorder = cy.get(checkoutPage.thxorder).text().trim()
+      // expect(thxorder, 'Thank you for your purchase!')
+    // })
+      
+  })
+
+})

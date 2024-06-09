@@ -1,6 +1,7 @@
 class checkoutPage{
     cartbtn = '.showcart'
     pcheckoutbtn = '#top-cart-btn-checkout'
+    cartdetail = ':nth-child(7) > .secondary > .action > span'
     address = "input[name='street[0]']"
     city = "input[name='city']"
     province = '[name="region_id"]'
@@ -15,22 +16,39 @@ class checkoutPage{
     plcorder = '.payment-method-content > :nth-child(4) > div.primary > .action'
     thxorder = '.base'
 
-    clickcart() {
+    clickCart() {
         cy.get(this.cartbtn).click();
     }
-    clickchkout() {
+    clickProceedOrder() {
+        cy.get(this.cartdetail).click();
+    }
+    clickChkout() {
         cy.get(this.pcheckoutbtn).click();
-        cy.get().should('have.text', 'Welcome to Example');
+        //cy.get().should();
     }
-    clickshipmtd() {
-        cy.get(this.shipmtd).click()
+    clickShipmtd() {
+        cy.get(this.shipmtd).click();
     }
-    clicknextbtn() {
-        cy.get(this.nextbtn).click()
+    clickNextbtn() {
+        cy.get(this.nextbtn).click();
     }
+    clickPlaceOrder() {
+        cy.get(this.plcorder).click()
+    }
+
+    addShippingInfo() {
+        cy.fixture('checkout').then((data) => {
+            cy.get(this.address).type(data.address);
+            cy.get(this.city).type(data.city);
+            cy.get(this.country).select(data.country); //handling multiple dropdown
+            cy.get(this.province).select(47); //handling multiple dropdown
+            cy.get(this.zipcode).type(data.zipcode);
+            cy.get(this.phone).type(data.phone);
+            cy.wait(5000);
+        })    
+    }
+
 
 }
-
-
 
 export default new checkoutPage()
