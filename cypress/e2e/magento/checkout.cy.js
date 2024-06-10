@@ -6,7 +6,7 @@ describe('checkout', () => {
   })
 
   it('success checkout', () => {
-    cy.loginmut()
+    cy.login()
     // cy.chooseproduct()
 
     cy.wait(5000)
@@ -23,6 +23,7 @@ describe('checkout', () => {
       // checkoutPage.clickNextbtn()
       // cy.wait(10000)
 
+      // validate subtotal with total should be the same
       // cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
       //   const subtotal = $subtotal.text().trim()
       //   cy.get(checkoutPage.totalchk).then(($total) => {
