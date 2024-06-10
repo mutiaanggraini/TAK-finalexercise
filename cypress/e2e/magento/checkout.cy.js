@@ -7,37 +7,35 @@ describe('checkout', () => {
 
   it('success checkout', () => {
     cy.login()
-    // cy.chooseproduct()
+    cy.chooseproduct()
 
     cy.wait(5000)
     checkoutPage.clickCart()
-      cy.wait(5000)
-      checkoutPage.clickChkout()
-      cy.url().should('include', '/checkout/#shipping')
-      cy.wait(5000)
+    cy.wait(5000)
+    checkoutPage.clickChkout()
+    cy.url().should('include', '/checkout/#shipping')
+    cy.wait(5000)
 
-      // Code to fill shipping information
-      checkoutPage.addShippingInfo()
+    // Code to fill shipping information
+    checkoutPage.addShippingInfo()
       
-      // checkoutPage.clickShipmtd()
-      // checkoutPage.clickNextbtn()
-      // cy.wait(10000)
+    checkoutPage.clickShipmtd()
+    checkoutPage.clickNextbtn()
+    cy.wait(10000)
 
-      // validate subtotal with total should be the same
-      // cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
-      //   const subtotal = $subtotal.text().trim()
-      //   cy.get(checkoutPage.totalchk).then(($total) => {
-      //     // Extract and assert the text from the second element
-      //     const total = $total.text().trim()
+    // validate subtotal to total should be the same if single option
+    // cy.get(checkoutPage.subtotalchk).then(($subtotal) => {
+    //   const subtotal = $subtotal.text().trim()
+    //   cy.get(checkoutPage.totalchk).then(($total) => {
+    //     // Extract and assert the text from the second element
+    //     const total = $total.text().trim()
 
-      //   expect(subtotal).to.equal(total)
-      // })
-        
-      checkoutPage.clickPlaceOrder()
-      // const thxorder = cy.get(checkoutPage.thxorder).text().trim()
-      // expect(thxorder, 'Thank you for your purchase!')
+    //   expect(subtotal).to.equal(total)
+    //   })
+    
     // })
-      
+    checkoutPage.clickPlaceOrder();
+    
   })
 
 })

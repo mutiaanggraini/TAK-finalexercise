@@ -13,7 +13,7 @@ class checkoutPage{
     nextbtn = ".button"
     subtotalchk = '[data-th="Cart Subtotal"]'
     totalchk = '[data-th="Order Total"]'
-    plcorder = '.payment-method-content > :nth-child(4) > div.primary > .action'
+    plcorder = "button[title='Place Order']"
     thxorder = '.base'
 
     clickCart() {
@@ -24,7 +24,6 @@ class checkoutPage{
     }
     clickChkout() {
         cy.get(this.pcheckoutbtn).click();
-        //cy.get().should();
     }
     clickShipmtd() {
         cy.get(this.shipmtd).click();
@@ -34,6 +33,7 @@ class checkoutPage{
     }
     clickPlaceOrder() {
         cy.get(this.plcorder).click()
+        cy.url().should('include', 'checkout/onepage/success');
     }
 
     addShippingInfo() {
@@ -47,7 +47,6 @@ class checkoutPage{
             cy.wait(5000);
         })    
     }
-
 
 }
 
